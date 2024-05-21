@@ -51,7 +51,7 @@ class NotionHelper:
                 notion_token = os.getenv("MOVIE_NOTION_TOKEN")
             else:
                 notion_token = os.getenv("BOOK_NOTION_TOKEN")
-        self.client = Client(auth=notion_token, log_level=logging.ERROR)
+        self.client = Client(auth=notion_token.strip(), log_level=logging.ERROR)
         self.__cache = {}
         self.page_id = self.extract_page_id(page_url)
         self.search_database(self.page_id)
